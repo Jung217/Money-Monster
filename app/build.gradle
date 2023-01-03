@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdk 32
+    buildToolsVersion '30.0.3'
+
+    defaultConfig {
+        applicationId "com.hyl.accountbook"
+        minSdkVersion 19
+        targetSdkVersion 32
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    /*implementation 'com.android.support:appcompat-v7:23.2.0'
+    implementation 'com.android.support:design:23.2.0'*/
+    implementation 'com.android.support:appcompat-v7:+'
+    implementation 'com.android.support:design:+'
+    implementation files('libs/achartengine-1.0.0.jar')
+
+    implementation 'me.dm7.barcodescanner:zxing:1.9.13'
+    implementation 'com.github.yuriy-budiyev:code-scanner:2.3.2'
+}
