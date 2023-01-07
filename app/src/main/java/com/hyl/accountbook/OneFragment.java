@@ -42,22 +42,7 @@ public class OneFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_one, container, false);
-
-        /*測試
-        int[] image_expense = new int[]{R.mipmap.detail_income, R.mipmap.detail_payout };
-        String[] expense_category = new String[] {"發薪水", "買衣服"};
-        String[] expense_money = new String[] {"30000.00", "1500.00"};
-
-        for (int i = 0; i < image_expense.length; i++)
-        {
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("image_expense", image_expense[i]);
-            map.put("expense_category", expense_category[i]);
-            map.put("expense_money", expense_money[i]);
-            listitem.add(map);
-        }*/
         getData();
 
         adapter = new SimpleAdapter(getActivity()
@@ -69,7 +54,7 @@ public class OneFragment extends Fragment {
         listView = (ListView) v.findViewById(R.id.lv_expense);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {//设置监听器
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Map<String, Object> map = (Map<String, Object>) parent.getItemAtPosition(position);
@@ -80,28 +65,16 @@ public class OneFragment extends Fragment {
         return v;
     }
 
-    /*Runnable add = new Runnable(){
-        @Override
-        public void run() {
-            Map<String, Object> map = new HashMap<>();
-            map.put("image_expense", R.mipmap.detail_income);
-            map.put("expense_category", "aaaaaa");
-            map.put("expense_money", "+10");
-            listitem.add(map);
-            adapter.notifyDataSetChanged();
-        }
-    };*/
-
     private void getData(){
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("setting", Activity.MODE_PRIVATE);
         String userID =sharedPreferences.getString("userID", "");
 
-        Log.i("info", "此次登錄的用戶是" + userID);
+        Log.i("info", "此次登入的用戶是" + userID);
 
         if(userID.isEmpty()){
             new AlertDialog.Builder(getActivity())
                     .setTitle("提示")
-                    .setMessage("您還未登錄，請點擊確定按鈕進行登錄！")
+                    .setMessage("您還未登錄，請點擊確定按鈕進行登入！")
                     .setPositiveButton("確定", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             getActivity().setResult(-1);

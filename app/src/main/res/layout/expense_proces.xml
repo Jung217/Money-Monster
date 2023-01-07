@@ -2,7 +2,7 @@
 <FrameLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    style="@style/common_bg"
+    android:background="@mipmap/bg1"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:lineBarView="http://schemas.android.com/apk/res/com.mymoney">
 
@@ -11,7 +11,7 @@
         android:id="@+id/main_ly"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@mipmap/bg">
+        android:background="@mipmap/bg1">
         <TextView
             android:id="@+id/title_tv"
             android:text="記帳"

@@ -34,12 +34,10 @@
     <string name="count">統計</string>
     <string name="count_des">該功能正在開發中，敬請期待！</string>
 
-    <!-- memo——MyDialog -->
     <string name="dialog_memo_title">備注</string>
     <string name="dialog_memo_ok">保存</string>
     <string name="dialog_memo_cancle">取消</string>
 
-    <!-- TransactionTabActivity -->
     <string name="input_message">請填寫金額</string>
     <string name="edit_message">編輯成功</string>
     <string name="save_message">保存成功</string>

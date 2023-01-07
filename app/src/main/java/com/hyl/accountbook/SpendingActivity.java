@@ -37,7 +37,7 @@ public class SpendingActivity extends AppCompatActivity implements View.OnClickL
     private Spinner month_spinner;
     private ArrayAdapter<String> month_adapter;
 
-    private AlertDialog alertDialog_AddRecord;//点击记一笔按钮时弹出提示框
+    private AlertDialog alertDialog_AddRecord;
 
     String[] titles = new String[]{"明細", "類別報表"};
     private static final String[] yearList = {pubFun.getTime("Y") + "年"};
@@ -65,7 +65,6 @@ public class SpendingActivity extends AppCompatActivity implements View.OnClickL
 
             @Override
             public void onPageSelected(int position) {
-                //title.setText(titles[position]);
                 changeTextColor(position);
             }
 

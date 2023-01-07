@@ -36,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        //call DBOpenHelper
         DBOpenHelper helper = new DBOpenHelper(this,"qianbao.db",null,1);
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor c = db.query("user_tb",null,"userID=? and pwd=?",new String[]{editPhone.getText().toString(),editPwd.getText().toString()},null,null,null);

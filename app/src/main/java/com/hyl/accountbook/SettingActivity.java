@@ -8,21 +8,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 //import android.support.v7.app.ActivityCompat;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
 
 import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 import com.google.zxing.Result;
-
-/*public class SettingActivity extends AppCompatActivity {
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting);
-    }
-}*/
 
 public class SettingActivity extends AppCompatActivity {
     private CodeScanner mCodeScanner;
@@ -31,6 +24,11 @@ public class SettingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},1);
+        }
+
         setContentView(R.layout.setting);
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
         mCodeScanner = new CodeScanner(this, scannerView);
@@ -42,7 +40,6 @@ public class SettingActivity extends AppCompatActivity {
                     public void run() {
                         Rtxt = result.getText();
                         getDialog();
-                        //Toast.makeText(SettingActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

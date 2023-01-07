@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private CircleMenuLayout mCircleMenuLayout;
 
     private String[] mItemTexts = new String[] { "登錄&註冊", "關於我們", "許願墻",
-            "特殊設定", "收入&支出", "統計" };
+            "QR 掃描", "收入&支出", "統計" };
     private int[] mItemImgs = new int[] { R.mipmap.home_mbank_1_normal,
             R.mipmap.home_mbank_2_normal, R.mipmap.home_mbank_3_normal,
             R.mipmap.home_mbank_4_normal, R.mipmap.home_mbank_5_normal,
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         mCircleMenuLayout.setOnMenuItemClickListener(new OnMenuItemClickListener() {
             public void itemClick(View view, int pos) {
-                if (mItemTexts[pos] == "特殊設定") {
+                if (mItemTexts[pos] == "QR 掃描") {
                     openSettingWind(view);
                 } else if (mItemTexts[pos] == "收入&支出") {
                     openSpendingWind(view);

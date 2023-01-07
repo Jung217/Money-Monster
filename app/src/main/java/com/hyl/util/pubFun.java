@@ -29,7 +29,6 @@ public class pubFun {
 
     public static boolean isPhoneNumberValid(String phoneNumber) {
         boolean isValid = false;
-        //Acceptable phone formats include:
         String expression = "^\\(?(\\d{4})\\)?[- ]?(\\d{3})[- ]?(\\d{3})$";
         String expression2 = "^\\(?(\\d{4})\\)?[- ]?(\\d{3})[- ]?(\\d{3})$";
         CharSequence inputStr = phoneNumber;
@@ -45,8 +44,8 @@ public class pubFun {
     }
 
     public static Integer getTime(String strFlag){
-        Time t = new Time(); // or Time t=new Time("GMT+8"); 加上Time Zone资料
-        t.setToNow(); // 取得系统时间
+        Time t = new Time();
+        t.setToNow();
         int reValue = 0;
         if(strFlag == "Y"){
             reValue = t.year;
@@ -60,11 +59,6 @@ public class pubFun {
         return reValue;
     }
 
-    /**
-     *
-     * @param date
-     * @return
-     */
     public static String format(Date date){
         String str = "";
         SimpleDateFormat ymd = null;
